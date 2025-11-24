@@ -1,13 +1,28 @@
-const { emailTemplate } = require('./js-foundation/01-template');
+const { getAge, getUUID } = require("./plugins");
+
+// const { emailTemplate } = require('./js-foundation/01-template');
 // require('./js-foundation/02 - destructuring');
-const { getUserById } = require('./js-foundation/03-callbacks');
+// const { getUserById } = require('./js-foundation/03-callbacks');
+// const { getUserById } = require('./js-foundation/04-arrow');
 
-const id = 4;
+// const { buildMakePerson } = require("./js-foundation/05-factory");
 
-getUserById(id, function(error, user) {
-    if (error) {
-        throw new Error(error);
-    }
+const getPokemonById = require("./js-foundation/06-promises");
 
-    console.log('User found:', user);
-});
+getPokemonById(200)
+  .then((name) => console.table({ name }))
+  .catch((err) => console.error("Por davor intente de nuevo"))
+  .finally(() => console.log("Proceso terminado"));
+
+//REFERENCIA A FACTORY y USO DE LA MISMA
+
+// const makePerson = buildMakePerson({ getUUID, getAge });
+
+// const obj = {
+//   name: "John",
+//   birthdate: "1997-03-21",
+// };
+
+// const john = makePerson(obj);
+
+// console.log(john);
