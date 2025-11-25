@@ -1,3 +1,4 @@
+const { log } = require("winston");
 const { getAge, getUUID } = require("./plugins");
 
 // const { emailTemplate } = require('./js-foundation/01-template');
@@ -7,12 +8,16 @@ const { getAge, getUUID } = require("./plugins");
 
 // const { buildMakePerson } = require("./js-foundation/05-factory");
 
-const getPokemonById = require("./js-foundation/06-promises");
+// const getPokemonById = require("./js-foundation/06-promises");
+const { buildLogger } = require("./plugins");
 
-getPokemonById(200)
-  .then((name) => console.table({ name }))
-  .catch((err) => console.error("Por davor intente de nuevo"))
-  .finally(() => console.log("Proceso terminado"));
+const logger = buildLogger("app.js");
+logger.log("Iniciando la aplicación");
+
+// getPokemonById(200)
+//   .then((name) => console.table({ name }))
+//   .catch((err) => console.error("Por davor intente de nuevo"))
+//   .finally(() => console.log("Proceso terminado"));
 
 //REFERENCIA A FACTORY y USO DE LA MISMA
 
