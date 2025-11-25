@@ -13,6 +13,7 @@ const { buildLogger } = require("./plugins");
 
 const logger = buildLogger("app.js");
 logger.log("Iniciando la aplicación");
+logger.error("Esto es un error de prueba");
 
 // getPokemonById(200)
 //   .then((name) => console.table({ name }))
